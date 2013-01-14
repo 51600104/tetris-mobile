@@ -2,8 +2,6 @@ var utils = (function(win, $) {
 
     "use strict";
 
-	var ieFlag = '__proto__' in {} ? false : true;
-
 	var result = {};
 
 	result.create2DArray = function(x, y, data) {
@@ -22,7 +20,7 @@ var utils = (function(win, $) {
 	};
 
 	result.log = function(str) {
-		if (!ieFlag && console && console.log) {
+		if (console && console.log) {
 			console.log(str);
 		}
 	};
