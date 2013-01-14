@@ -295,7 +295,7 @@
 				}
 			}
 
-		},		
+		}
 	});
 
 	exports.GridView = GridView;
