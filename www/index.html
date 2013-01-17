@@ -8,32 +8,29 @@
         <title>Tetris Mobile</title>
     </head>
     <body>
-        <div id="header">
-            <h1>Tetris Mobile</h1>
+        <div class="container">
+
+            <div id="header">
+                <h3>Tetris Mobile</h3>
+            </div>
+
+            <div id="main">
+                <div id="menu">
+                   <input id="start" value="START" type="button" style="height: 35px; width: 100px"/>
+                </div>
+
+                <div id="playground" style="display : none;">
+                    <canvas id="grid" width='290' height='380' style="display:inline;">
+                        <div id="no-canvas-info">Ouch! Your device don't support html5!!</div>
+                    </canvas>
+                </div>
+            </div>
+
+            <div id="footer">
+                copyright &copy; dbzard@gmail.com 2013
+            </div>
+
         </div>
-
-        <div class="main">
-            <div id="info">请使用"上下左右"四个方向键操作 <br/> Use direction key to control the tetromino </div>
-
-            <div id="menu">
-               <input id="start" value="start" type="button"/>
-            </div>
-
-            <div id="playground" style="display : none;">
-                <canvas id="grid" width='320' height='470' style="display:inline;">
-                    <div id="no-canvas-info">Ouch! Your device don't support html5!!</div>
-                </canvas>
-            </div>
-            <div id="dPad" style="display : none;">
-                <input id="inputLeft" value="Left" type="button"/>
-                <input id="inputRight" value="Right" type="button"/>
-                <input id="inputUp" value="Rotate" type="button"/>
-                <input id="inputDown" value="Down" type="button"/>
-            </div>
-        </div>
-
-        <div id="footer">copyright &copy; dbzard#gmail.com 2012 &nbsp;&nbsp;| &nbsp;&nbsp;
-            <a target="_blank" href="https://github.com/dbzard/tetris">查看源码 Check source code</a></div>
 
         <script type="text/javascript" src="cordova-2.2.0.js"></script>
 

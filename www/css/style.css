@@ -1,0 +1,33 @@
+body {
+	background-color: LightSkyBlue;
+}
+
+h1, h2 {
+	text-align: center;
+}
+
+.container {
+	height: 100%;
+	width: 100%;
+	text-align: center;  
+} 
+
+#main {
+	height: 100%;
+	width: 100%;
+	text-align: center;
+}
+
+#playground {
+	display: inline-block;
+}
+
+#footer {
+
+}
+
+#menu {
+	padding-top: 30%;
+	padding-bottom: 30%;
+	border-style: dotted;
+}
