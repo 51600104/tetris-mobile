@@ -9,10 +9,10 @@
 
 			utils.log('init GridView');
 
-			this.cols = 9;
-			this.rows = 12;
-			this.gridWidth = 270;
-			this.gridHeight = 360;
+			this.cols = 10;
+			this.rows = 15;
+			this.gridWidth = 300;
+			this.gridHeight = 450;
 			this.gridPadding = 10;
 			this.cellWidth = 30;
 
@@ -22,7 +22,19 @@
 			this.LEFT = 37;
 
 			this.initGameData();
-			this.initGrid();		
+			this.initGrid();
+
+			this.colorMap = {
+				0 : "",
+				1 : "",
+				2 : "#00CED1",
+				3 : "#32CD32",
+				4 : "#FFD700",
+				5 : "#4B0082",
+				6 : "#FF0000",
+				7 : "#0000FF",
+				8 : "#FFA500"
+			};		
 		},
 
 		setInputType : function(type) {
@@ -125,11 +137,12 @@
 		showTetromino : function() {
 			if (this.tetromino) {
 				var tetrominoPoints = this.tetromino.getPoints();
+				var colorCode = this.tetromino.getColor() || 1;
 				for (var i = 0, max = tetrominoPoints.length; i < max; i++) {
 					var newX = tetrominoPoints[i].x;
 					var newY = tetrominoPoints[i].y;
 					if (newX >= 0 && newY >= 0) {
-						this.matrix[newX][newY] = 1;
+						this.matrix[newX][newY] = colorCode;
 					}
 				}				
 			}
@@ -175,11 +188,13 @@
 		render : function() {
 			this.cleanGrid();			
 
-			this.context.fillStyle = "black";
-			var x, y;
+			var x, y, point, color;
 			for (var i = 0; i < this.cols; i++) {
 				for (var j = 0; j < this.rows; j++) {
-					if (this.matrix[i][j]) {
+					point = this.matrix[i][j];
+					color = this.colorMap[point];
+					if (point && color) {
+						this.context.fillStyle = color;
 						x = 0.5 + i*this.cellWidth + this.gridPadding;
 						y = 0.5 + j*this.cellWidth + this.gridPadding;
 						this.context.fillRect(x - 1, y + 1, this.cellWidth - 1, this.cellWidth - 1);
@@ -295,7 +310,7 @@
 				}
 			}
 
-		}
+		},		
 	});
 
 	exports.GridView = GridView;
