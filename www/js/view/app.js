@@ -24,7 +24,6 @@
 			this.gameModel = "";
 
 			this.mainMediator = null;
-			this.subMediator = null;
 
 			this.counter = 0;
 			this.gameStarted = false;
@@ -42,7 +41,6 @@
 		singlePlay : function() {
 			utils.log("singlePlay!!!");
 
-			this.gameModel = "single";
 			this.mainMediator = new MainMediator();
 			this.gridView = new GridView({id : "grid"});
 			this.gridView.setMediator(this.mainMediator);
@@ -53,42 +51,15 @@
 			this.$singleInfo.fadeIn();
 			this.$singleCanvas.fadeIn();
 			this.gameStarted = true;
-			this.doubleModel = false;
 
 			this.gridView.start();
 		},
 
 		processFinish : function(data) {
-			switch (this.gameModel) {
-				case "single" :
-					alert("Game over! Your score :" + data.score);
-					this.render();
-					this.gameModel = "";
-					this.gameStarted = false;					
-				break;
-
-				case "double" :
-					var name = (data.name == 1 ? "one" : "two");
-					alert("Player " + name + " game over! Your score :" + data.score);
-					this.counter++;
-
-					if (this.counter >= 2) {
-						this.counter = 0;
-						this.render();
-						this.gameModel = "";
-						this.gameStarted = false;							
-					}
-				break;
-
-				case "remote" :
-					alert("Game over! You " + data.data + "! Your score :" + data.score);
-					this.render();
-					this.gameModel = "";
-					this.gameStarted = false;						
-				break;
-
-				default : break;
-			}
+			alert("Game over! Your score :" + data.score);
+			this.render();
+			this.gameModel = "";
+			this.gameStarted = false;					
 		},
 
 		togglePause : function(event) {
@@ -105,7 +76,7 @@
 		},
 
 		return : function(event) {
-			if (!this.doubleModel && this.gridView) {
+			if (this.gridView) {
 				this.paused = this.togglePause({"pause" : true});
 				var sure = confirm("确定要返回菜单页面?");
 				if (sure) {
