@@ -1,79 +1,124 @@
 (function(exports, $) {
 
 	"use strict";
-	
+
 	var AppView = Backbone.View.extend({
 		el : "body",
 
 		events : {
-			"click #start" : "play",
-            "click #inputLeft" : "inputLeft",
-            "click #inputRight" : "inputRight",
-            "click #inputUp" : "inputUp",
-            "click #inputDown" : "inputDown"
+			"click #start1" : "singlePlay",	
+			"click #pause" : "togglePause",
+			"click #return" : "return"
 		},
 
 		initialize : function(options) {
 			_.bindAll(this);
 
-            this.UP = 38;
-            this.DOWN = 40;
-            this.RIGHT = 39;
-            this.LEFT = 37;
-
-			this.$menu = $("#menu");
-			this.$playground = $("#playground");
-            this.$dPad = $("#dPad");
-			this.$info = $("#info");
+			this.$startMenu = $("#start-menu");
+			this.$singleCanvas = $("#singleCanvas");
+			this.$singleInfo = $("#single-info");
+			this.$optionBar = $("#optionBar");
 
 			this.lose = "lose";
 			this.win = "win";
+			this.gameModel = "";
+
 			this.mainMediator = null;
-			this.render();	
+			this.subMediator = null;
+
+			this.counter = 0;
+			this.gameStarted = false;
+			this.render();
+			this.paused = false;	
 		},
 
 		render : function() {
-			this.$playground.hide();
-            this.$dPad.hide()
-			this.$info.show();
-			this.$menu.show();
+			this.$optionBar.hide();
+			this.$singleCanvas.hide();
+			this.$singleInfo.hide();			
+			this.$startMenu.fadeIn();
 		},
 
-		play : function() {
+		singlePlay : function() {
 			utils.log("singlePlay!!!");
 
-			this.mainMediator = new Mediator();
+			this.gameModel = "single";
+			this.mainMediator = new MainMediator();
 			this.gridView = new GridView({id : "grid"});
 			this.gridView.setMediator(this.mainMediator);
 			this.listenTo(this.gridView, 'finish', this.processFinish);	
 
-			this.$menu.hide();
-			this.$playground.fadeIn();
-            this.$dPad.fadeIn();
-            this.mainMediator.init();
+			this.$startMenu.hide();
+			this.$optionBar.fadeIn();			
+			this.$singleInfo.fadeIn();
+			this.$singleCanvas.fadeIn();
+			this.gameStarted = true;
+			this.doubleModel = false;
+
 			this.gridView.start();
 		},
 
 		processFinish : function(data) {
-            alert("Game over! Your score :" + data.score);
-            this.render();
+			switch (this.gameModel) {
+				case "single" :
+					alert("Game over! Your score :" + data.score);
+					this.render();
+					this.gameModel = "";
+					this.gameStarted = false;					
+				break;
+
+				case "double" :
+					var name = (data.name == 1 ? "one" : "two");
+					alert("Player " + name + " game over! Your score :" + data.score);
+					this.counter++;
+
+					if (this.counter >= 2) {
+						this.counter = 0;
+						this.render();
+						this.gameModel = "";
+						this.gameStarted = false;							
+					}
+				break;
+
+				case "remote" :
+					alert("Game over! You " + data.data + "! Your score :" + data.score);
+					this.render();
+					this.gameModel = "";
+					this.gameStarted = false;						
+				break;
+
+				default : break;
+			}
 		},
 
-        inputLeft : function() {
-            this.gridView.handleInput({keyCode : this.LEFT});
-        },
+		togglePause : function(event) {
+			if (!this.doubleModel && this.gridView) {
+				this.paused = this.gridView.togglePause(event.pause);
+				var text;
+				if (this.paused) {
+					text = "继续";
+				} else {
+					text = "暂停";
+				}			
+				$("input#pause").parent().find(".ui-btn-text").text(text);
+			}
+		},
 
-        inputRight : function() {
-            this.gridView.handleInput({keyCode : this.RIGHT});
-        },
-
-        inputUp : function() {
-            this.gridView.handleInput({keyCode : this.UP});
-        },
-
-        inputDown : function() {
-            this.gridView.handleInput({keyCode : this.DOWN});
-        }
+		return : function(event) {
+			if (!this.doubleModel && this.gridView) {
+				this.paused = this.togglePause({"pause" : true});
+				var sure = confirm("确定要返回菜单页面?");
+				if (sure) {
+                    $("input#pause").parent().find(".ui-btn-text").text("暂停");
+					this.gridView.forceStop(true);
+					this.render();
+					this.gameModel = "";
+					this.gameStarted = false;	
+				} else {
+					this.paused = this.togglePause({"pause" : false});
+				}
+			}
+		}
 	});
 
 	exports.AppView = AppView;

@@ -34,7 +34,9 @@
 				6 : "red",
 				7 : "blue",
 				8 : "Darkorange"
-			};		
+			};
+
+			this.paused = false;		
 		},
 
 		setInputType : function(type) {
@@ -234,10 +236,12 @@
 			var that = this;
 			var loopFun = function() {
 				if (!that.gameOver) {
-					that.checkNewTetromino();				
-					that.run();
-					that.render();
-					that.mediator.update();
+					if (!that.paused) {
+						that.checkNewTetromino();				
+						that.run();
+						that.render();
+						that.mediator.update();
+					}
 					setTimeout(loopFun, 500);
 				} else {
 					if (!that.quiet) {
@@ -310,7 +314,16 @@
 				}
 			}
 
-		},		
+		},
+
+		togglePause : function(pause) {
+			if (pause !== undefined) {
+				this.paused = !!pause;
+			} else {
+				this.paused = !this.paused;
+			}
+			return this.paused;
+		}	
 	});
 
 	exports.GridView = GridView;

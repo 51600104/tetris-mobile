@@ -6,3 +6,4 @@
 *.log
 .idea
 cordova*.js
+phonegap*.js

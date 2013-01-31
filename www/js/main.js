@@ -2,15 +2,12 @@ $(function() {
  
    var appView;
 
-	if ($.browser.msie) {
-		var version = parseInt($.browser.version);
-		if (version < 9) {
-			$("#single-info").fadeOut();	
-			$("#ie-info").fadeIn();
-			return;
-		}
+	if (utils.oldIE) {
+		$("#start-menu").hide();	
+		$("#ie-info").show();
+		return;
+	} else {
+		appView = new AppView();
 	}
-
-	appView = new AppView();
 
 });

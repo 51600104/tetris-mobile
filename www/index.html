@@ -1,48 +1,63 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <meta name="format-detection" content="telephone=no" />
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
-        <link rel="stylesheet" type="text/css" href="css/style.css" />
-        <title>Tetris Mobile</title>
-    </head>
-    <body>
-        <div class="container">
+	<head>
+		<meta charset="utf-8">
+		<title>Simple Tetris</title>
 
-            <div id="header">
-                <h3>Tetris Mobile</h3>
-            </div>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" type="text/css" href="css/reset.css" />
+        <link rel="stylesheet" type="text/css" href="lib/jquery.mobile/jquery.mobile-1.2.0.min.css" /> 
+        <link rel="stylesheet" type="text/css" href="css/style.css" /> 
+		<script type="text/javascript" src="lib/jquery.min.js"></script>
+        <script type="text/javascript" src="lib/jquery.mobile/jquery.mobile-1.2.0.min.js"></script>
+	</head>
 
-            <div id="main">
-                <div id="menu">
-                   <input id="start" value="START" type="button" style="height: 35px; width: 100px"/>
-                </div>
-
-                <div id="playground" style="display : none;">
-                    <canvas id="grid" width='290' height='380' style="display:inline;">
-                        <div id="no-canvas-info">Ouch! Your device don't support html5!!</div>
-                    </canvas>
-                </div>
-            </div>
-
-            <div id="footer">
-                copyright &copy; dbzard@gmail.com 2013
-            </div>
-
-        </div>
-
-        <script type="text/javascript" src="cordova-2.2.0.js"></script>
-
-        <script type="text/javascript" src="lib/jquery.min.js"></script>
-        <script type="text/javascript" src="lib/underscore-min.js?v=1218"></script> 
-        <script type="text/javascript" src="lib/backbone-min.js?v=1218"></script>
-        <script type="text/javascript" src="js/utils.js?v=1218"></script>
-
-        <script type="text/javascript" src="js/model/tetris.js?v=0112"></script>
-        <script type="text/javascript" src="js/model/mediator.js?v=0112"></script>              
-        <script type="text/javascript" src="js/view/grid.js?v=0112"></script>       
-        <script type="text/javascript" src="js/view/app.js?v=0112"></script>
-        <script type="text/javascript" src="js/main.js?v=0112"></script>    
-    </body>
+	<div data-role="page">
+	
+	    <div data-role="header">
+	        <h1>简单俄罗斯方块 | SimpleTetris</h1>
+	    </div><!-- /header -->
+	
+	    <div data-role="content">
+	
+					<div id="single-info" class="info" style="display:none;">
+						请使用"上下左右"四个方向键操作 <br/> Use direction key to control tetromino 
+					</div>
+				
+					<div id="start-menu" class="menu">
+							<img id="logo" src="img/logo.png"/>
+							<input id="start1" value="单人游戏" type="button" data-inline="true"/><br />
+							<input id="start2" value="双人游戏" type="button" data-inline="true"/><br />
+							<input id="start3" value="网络对战" type="button" data-inline="true"/>
+					</div>
+	
+					<div id="singleCanvas" style="display : none;">
+						<canvas id="grid" width='320' height='470' style="display:inline;"></canvas>
+						<div id="optionBar" class="right" style="display : none;">
+							<ul>
+								<li><input id="pause" value="暂停" type="button" data-inline="true" data-theme="a"/></li>
+								<li><input id="return" value="返回" type="button" data-inline="true" data-theme="a"/></li>
+							</ul>					
+						</div>
+					</div>
+	
+					<div id="ie-info" style="display : none;" class="nocanvas">您的浏览器不支持HTML5, 请到<a href="http://browsehappy.com/">browsehappy.com</a>升级你的浏览器。<br>HTML5 canvas not supported, you may go to <a href="http://browsehappy.com/">browsehappy.com</a> to update your browser.</div>   
+	    </div><!-- /content -->
+	
+	    <div data-role="footer" data-position="fixed">
+	        <h4>copyright &copy; dbzard#gmail.com 2012 &nbsp;&nbsp;| &nbsp;&nbsp;<a target="_blank" href="http://github.com/dbzard/tetris">查看源码 Check source code</a></h4>
+	    </div><!-- /footer -->
+	</div><!-- /page -->
+	
+			<script type="text/javascript" src="phonegap.js"></script>
+			<script type="text/javascript" src="lib/underscore-min.js?v=1218"></script>
+			<script type="text/javascript" src="lib/backbone-min.js?v=1218"></script>
+			
+			<script type="text/javascript" src="js/utils.js?v=1227"></script>
+	
+			<script type="text/javascript" src="js/model/tetris.js?v=0127"></script>
+			<script type="text/javascript" src="js/model/mediator.js?v=0127"></script>				
+			<script type="text/javascript" src="js/view/grid.js?v=0127"></script>		
+			<script type="text/javascript" src="js/view/app.js?v=0127"></script>
+			<script type="text/javascript" src="js/main.js?v=0127"></script>
 </html>

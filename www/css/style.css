@@ -1,33 +1,95 @@
-body {
-	background-color: LightSkyBlue;
-}
-
 h1, h2 {
 	text-align: center;
 }
 
-.container {
-	height: 100%;
-	width: 100%;
-	text-align: center;  
-} 
+.nocanvas {
+	text-align: center;	
+	width: 500px;;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;	
+	color: red;
+}
 
-#main {
-	height: 100%;
-	width: 100%;
+#logo {
+	display: block;
+    margin: 0 auto;
+    padding-top: 30px;    
+    padding-bottom: 20px;
+}
+
+div.menu {
+	width: 500px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 60px;
+	margin-bottom: 50px;
 	text-align: center;
+	border: dotted thin;
+	padding-top: 20px;	
+	padding-bottom: 50px;
 }
 
-#playground {
-	display: inline-block;
+#start3 {
+	padding-bottom: 50px;
 }
 
-#footer {
-
+div.info {
+	text-align: center;
+	width: 80%;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
 }
 
-#menu {
-	padding-top: 30%;
-	padding-bottom: 30%;
-	border-style: dotted;
+#singleCanvas {
+	padding-left: 70px;
+    text-align: center;
+    width: 500px;
+    display: block;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0px;
+}
+
+#doubleCanvas {
+    width: 960px;
+    text-align: center;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0px;
+}
+
+.right {
+	float: right;
+}
+
+.title-left {
+    float: left;
+    font-weight: bold;
+    padding-left: 10px;    
+    padding-right: 10px;
+    padding-top: 10px;
+}
+
+.title-right {
+    float: left;
+    font-weight: bold;
+    padding-left: 10px;
+    padding-top: 10px;    
+}
+
+.canvas-left {
+    float: left;
+    padding-right: 20px;
+    margin-right: 20px;
+}
+
+.canvas-right {
+    float: left;
+    padding-left: 30px;
+    margin-left: 10px;
 }
