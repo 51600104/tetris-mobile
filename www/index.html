@@ -5,7 +5,6 @@
 		<title>Simple Tetris</title>
 
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="stylesheet" type="text/css" href="css/reset.css" />
         <link rel="stylesheet" type="text/css" href="lib/jquery.mobile/jquery.mobile-1.2.0.min.css" /> 
         <link rel="stylesheet" type="text/css" href="css/style.css" /> 
 		<script type="text/javascript" src="lib/jquery.min.js"></script>
@@ -15,22 +14,22 @@
 	<div data-role="page">
 	
 	    <div data-role="header">
-	        <h1>简单俄罗斯方块 | SimpleTetris</h1>
+	        <h1>TetrisMobile</h1>
 	    </div><!-- /header -->
 	
 	    <div data-role="content">
 	
 					<div id="single-info" class="info" style="display:none;">
-						请使用"上下左右"四个方向键操作 <br/> Use direction key to control tetromino 
+
 					</div>
 				
 					<div id="start-menu" class="menu">
 							<img id="logo" src="img/logo.png"/>
-							<input id="start1" value="单人游戏" type="button" data-inline="true"/><br />
+							<input id="start1" value="开始游戏" type="button" data-inline="true"/><br />
 					</div>
 	
 					<div id="singleCanvas" style="display : none;">
-						<canvas id="grid" width='320' height='470' style="display:inline;"></canvas>
+						<canvas id="grid" width='260' height='320' style="display:inline;"></canvas>
 						<div id="optionBar" class="right" style="display : none;">
 							<ul>
 								<li><input id="pause" value="暂停" type="button" data-inline="true" data-theme="a"/></li>
@@ -38,12 +37,10 @@
 							</ul>					
 						</div>
 					</div>
-	
-					<div id="ie-info" style="display : none;" class="nocanvas">您的浏览器不支持HTML5, 请到<a href="http://browsehappy.com/">browsehappy.com</a>升级你的浏览器。<br>HTML5 canvas not supported, you may go to <a href="http://browsehappy.com/">browsehappy.com</a> to update your browser.</div>   
 	    </div><!-- /content -->
 	
 	    <div data-role="footer" data-position="fixed">
-	        <h4>copyright &copy; dbzard#gmail.com 2012 &nbsp;&nbsp;| &nbsp;&nbsp;<a target="_blank" href="http://github.com/dbzard/tetris">查看源码 Check source code</a></h4>
+	        <h4>copyright &copy; dbzard@gmail.com</h4>
 	    </div><!-- /footer -->
 	</div><!-- /page -->
 	
