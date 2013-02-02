@@ -19,23 +19,23 @@
 	
 	    <div data-role="content">
 	
-					<div id="single-info" class="info" style="display:none;">
-
-					</div>
-				
 					<div id="start-menu" class="menu">
 							<img id="logo" src="img/logo.png"/>
 							<input id="start1" value="开始游戏" type="button" data-inline="true"/><br />
 					</div>
 	
 					<div id="singleCanvas" style="display : none;">
-						<canvas id="grid" width='260' height='320' style="display:inline;"></canvas>
-						<div id="optionBar" class="right" style="display : none;">
-							<ul>
-								<li><input id="pause" value="暂停" type="button" data-inline="true" data-theme="a"/></li>
-								<li><input id="return" value="返回" type="button" data-inline="true" data-theme="a"/></li>
-							</ul>					
-						</div>
+						<canvas id="grid" width='220' height='300' style="display:inline;"></canvas>
+						<ul id="bottom-input">
+							<li><input id="left"  data-icon="arrow-l" value="左" type="button" data-inline="true" data-theme="a"/></li>
+							<li><input id="right" data-icon="arrow-r" value="右" type="button" data-inline="true" data-theme="a"/></li>
+						</ul>
+							<ul id="right-input">
+							<li><input id="pause"  data-icon="arrow-l" value="左" type="button" data-inline="true" data-theme="a"/></li>
+							<li><input id="return" data-icon="arrow-r" value="右" type="button" data-inline="true" data-theme="a"/></li>
+							<li><input id="up"  data-icon="arrow-l" value="左" type="button" data-inline="true" data-theme="a"/></li>
+							<li><input id="down" data-icon="arrow-r" value="右" type="button" data-inline="true" data-theme="a"/></li>
+							</ul>				
 					</div>
 	    </div><!-- /content -->
 	
