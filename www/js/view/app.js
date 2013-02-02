@@ -15,7 +15,7 @@
 			_.bindAll(this);
 
 			this.$startMenu = $("#start-menu");
-			this.$singleCanvas = $("#singleCanvas");
+			this.$singlePage = $("#singlePage");
 			this.$singleInfo = $("#single-info");
 			this.$optionBar = $("#optionBar");
 
@@ -33,7 +33,7 @@
 
 		render : function() {
 			this.$optionBar.hide();
-			this.$singleCanvas.hide();
+			this.$singlePage.hide();
 			this.$singleInfo.hide();			
 			this.$startMenu.fadeIn();
 		},
@@ -49,7 +49,7 @@
 			this.$startMenu.hide();
 			this.$optionBar.fadeIn();			
 			this.$singleInfo.fadeIn();
-			this.$singleCanvas.fadeIn();
+			this.$singlePage.fadeIn();
 			this.gameStarted = true;
 
 			this.gridView.start();
