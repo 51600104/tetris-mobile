@@ -8,7 +8,8 @@
 		events : {
 			"click #start1" : "singlePlay",	
 			"click #pause" : "togglePause",
-			"click #return" : "return"
+			"click #return" : "return",
+			"click #up, #down, #left, #right" : "processinput"
 		},
 
 		initialize : function(options) {
@@ -89,6 +90,11 @@
 					this.paused = this.togglePause({"pause" : false});
 				}
 			}
+		},
+
+		processinput : function(event) {
+			var target = $(event.target);
+			this.mainMediator.input(target.attr("id"));
 		}
 	});
 

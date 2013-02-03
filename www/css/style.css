@@ -32,18 +32,11 @@ div.info {
 }
 
 #singlePage {
-	float: left;
 	width: 100%;
 }
 
-#singleCanvas {
-    margin-right: 30%; 
-}
-
 #bottom-input {
-	margin: 0 auto;
-	margin-top: -2%;
-	margin-bottom: 0%;
+	margin: 0 0 0 0;
 }
 
 #bottom-input li {
@@ -51,17 +44,20 @@ div.info {
 	float: left;
 }
 
-.right {
-	width: 20%;
-	float: left;
-	margin-left: -20%;
-}
-
 #right-input {
+	list-style: none;
 	margin: 0 auto;
 }
 
-#right-input li {
+#bottom-input li {
 	list-style: none;
-	float: right;
 }
+
+.ui-grid-a .ui-block-a { 
+	width: 70%; 
+}
+
+.ui-grid-a .ui-block-b { 
+	width: 30%; 
+	margin-left: -15%;
+} 

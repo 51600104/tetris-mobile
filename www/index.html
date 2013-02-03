@@ -24,23 +24,30 @@
 							<input id="start1" value="开始游戏" type="button" data-inline="true"/><br />
 					</div>
 	
-				<div id="singlePage" style="display : none;">
-					<div id="singleCanvas">
-						<canvas id="grid" width='220' height='300' style="display:inline;"></canvas>
-						<ul id="bottom-input">
-							<li><input id="left"  data-icon="arrow-l" value="左" type="button" data-inline="true" data-theme="a"/></li>
-							<li><input id="right" data-icon="arrow-r" value="右" type="button" data-inline="true" data-theme="a"/></li>
-						</ul>			
+				<div id="singlePage" class="ui-grid-a" style="display : none;">
+					
+					<div class="ui-block-a">
+						<canvas id="grid" width='180' height='300' style="display:inline;"></canvas>
+						<div id="bottom-input">
+							<input id="left"  data-icon="arrow-l" value="左" type="button" data-inline="true" data-theme="a"/>
+							<input id="right" data-icon="arrow-r" value="右" type="button" data-inline="true" data-theme="a"/>
+						</div>			
 					</div>
 
-					<div class="right">
+					<div class="ui-block-b">
 						<ul id="right-input">
-						<li><input id="pause"  data-icon="arrow-l" value="左" type="button" data-inline="true" data-theme="a"/></li>
-						<li><input id="return" data-icon="arrow-r" value="右" type="button" data-inline="true" data-theme="a"/></li>
-						<li><input id="up"  data-icon="arrow-l" value="左" type="button" data-inline="true" data-theme="a"/></li>
-						<li><input id="down" data-icon="arrow-r" value="右" type="button" data-inline="true" data-theme="a"/></li>
+						<li><input id="pause" value="暂停" type="button" data-inline="true" data-theme="a"/></li>
+						<li><input id="return" value="返回" type="button" data-inline="true" data-theme="a"/></li>
+						<li>&nbsp;</li>
+						<li>&nbsp;</li>
+						<li>&nbsp;</li>
+						<li>&nbsp;</li>
+						<li>&nbsp;</li>																	
+						<li><input id="down" data-icon="arrow-d" value="下" type="button" data-inline="true" data-theme="a"/></li>
+						<li><input id="up"  data-icon="arrow-u" value="上" type="button" data-inline="true" data-theme="a"/></li>
 						</ul>
 					</div>
+
 				</div>
 	    </div><!-- /content -->
 	

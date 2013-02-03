@@ -8,6 +8,11 @@
 		this.newTetris = true;
 		this.gameEnd = false;
 		this.inputQueue = [];
+
+		this.UP = 38;
+		this.DOWN = 40;
+		this.RIGHT = 39;
+		this.LEFT = 37;
 	};
 
 	Mediator.prototype.reset = function() {
@@ -38,8 +43,6 @@
 
 	function MainMediator() {
 		Mediator.call(this);
-
-		
 	}
 
 	MainMediator.prototype = new Mediator();
@@ -80,6 +83,33 @@
 			result.input = this.inputQueue.join();
 		}
 		return JSON.stringify(result);
+	};
+
+	MainMediator.prototype.input = function(input) {
+		if (this.inputHandler) {
+			var keyCode;
+			switch (input.toLowerCase()) {
+				case "up":
+					keyCode = this.UP;
+				break;
+
+				case "down":
+					keyCode = this.DOWN;
+				break;
+
+				case "left":
+					keyCode = this.LEFT;
+				break;
+
+				case "right":
+					keyCode = this.RIGHT;
+				break;
+
+				default: break;
+			}
+
+			this.inputHandler({"keyCode" : keyCode});		
+		}		
 	};
 
 /////////////////////////////////////////////////////////////////

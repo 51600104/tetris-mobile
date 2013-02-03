@@ -9,11 +9,11 @@
 
 			utils.log('init GridView');
 
-			this.cols = 10;
+			this.cols = 8;
 			this.rows = 14;
 			this.gridPadding = 10;
 			this.cellWidth = 20;
-			this.gridWidth = 200;
+			this.gridWidth = 160;
 			this.gridHeight = 280;
 
 
