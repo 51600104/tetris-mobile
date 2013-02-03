@@ -6,10 +6,10 @@ tetris-mobile
 
 =============
 
-![menu](https://raw.github.com/dbzard/tetris-mobile/master/screenshots/menu.jpg)
+![menu](https://raw.github.com/dbzard/tetris-mobile/master/screenshots/menu.png)
 
 
-![play](https://raw.github.com/dbzard/tetris-mobile/master/screenshots/play.jpg)
+![play](https://raw.github.com/dbzard/tetris-mobile/master/screenshots/play.png)
 
 
 =============
